@@ -1,0 +1,35 @@
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.event.ActionEvent;
+
+public class ButtonFrame1 extends JFrame {
+    private static final int FRAME_WIDTH = 300;
+    private static final int FRAME_HEIGHT = 200;
+    private int clickCount = 0;
+    private JButton button;
+    
+    public ButtonFrame1() {
+        createComponents();
+        setSize(FRAME_WIDTH, FRAME_HEIGHT);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    private void createComponents() {
+        button = new JButton("Beni tıklayın!");
+        JPanel panel = new JPanel();
+        panel.add(button);
+        add(panel);
+
+        ActionListener listener = new ClickListener();
+        button.addActionListener(listener);
+    }
+
+    class ClickListener implements ActionListener {
+        public void actionPerformed(ActionEvent event) {
+            clickCount++;
+            button.setText("Tıklama sayısı: " + clickCount);
+        }
+    }
+}
