@@ -1,0 +1,10 @@
+import javax.swing.JFrame;
+
+public class ButtonViewer2
+{
+    public static void main(String[] args) {
+        JFrame frame = new ButtonFrame2();
+        frame.setVisible(true);
+        System.out.println(new java.util.Date());
+    }
+}
